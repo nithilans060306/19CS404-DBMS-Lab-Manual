@@ -47,123 +47,166 @@ SELECT column1, column2 FROM table_name WHERE condition;
 ```
 **Question 1**
 --
--- Paste Question 1 here
+-- Write a SQL statement to Change the supplier name to 'A1 Suppliers' where the supplier ID is 8 in the suppliers table.
 
 ```sql
--- Paste your SQL code below for Question 1
+-- UPDATE Suppliers
+SET supplier_name = 'A1 Suppliers' 
+WHERE supplier_id = 8;
 ```
 
 **Output:**
 
-![Output1](output.png)
+![image](https://github.com/user-attachments/assets/08c9cbad-1d25-4fc6-b29a-c0fc6a236996)
+
 
 **Question 2**
 ---
--- Paste Question 2 here
+-- Write a SQL statement to update the product_name as 'Grapefruit' whose product_id is 4 in the products table.
 
 ```sql
--- Paste your SQL code below for Question 2
+-- UPDATE products
+SET product_name = 'Grapefruit'
+WHERE product_id = 4;
 ```
 
 **Output:**
 
-![Output2](output.png)
+![image](https://github.com/user-attachments/assets/61609fad-afd1-4796-ac19-d71ddd707290)
+
 
 **Question 3**
 ---
--- Paste Question 3 here
+-- Write a SQL statement to Update the address to '58 Lakeview, Magnolia' where supplier ID is 5 in the suppliers table.
+
+Suppliers Table 
+
+name               type
+-----------------  ---------------
+supplier_id        INT
+supplier_name      VARCHAR(100)
+contact_person     VARCHAR(100)
+phone_number       VARCHAR(20)
+email              VARCHAR(100)
+address            VARCHAR(250)
 
 ```sql
--- Paste your SQL code below for Question 3
+-- UPDATE Suppliers
+SET address = '58 Lakeview, Magnolia'
+WHERE supplier_id = 5;
 ```
 
 **Output:**
 
-![Output3](output.png)
+![image](https://github.com/user-attachments/assets/ef723575-8579-4bb1-a56b-f57f3e1e74a0)
+
 
 **Question 4**
 ---
--- Paste Question 4 here
+-- For products with a profit % less than 30% of selling price, update the selling price to provide a profit margin of 35% over cost price of the product in the products table.
+
+PRODUCTS TABLE
+
+name               type
+-----------------  ---------------
+product_id         INT
+product_name       VARCHAR(100)
+category           VARCHAR(50)
+cost_price         DECIMAL(10,2)
+sell_price         DECIMAL(10,2)
+reorder_lvl        INT
+quantity           INT
+supplier_id        INT
 
 ```sql
--- Paste your SQL code below for Question 4
+-- UPDATE Products
+SET sell_price = CAST(cost_price * 1.35 AS INT)
+WHERE (sell_price - cost_price) / sell_price * 100 < 30;
 ```
 
 **Output:**
 
-![Output4](output.png)
+![image](https://github.com/user-attachments/assets/bd8857f0-8344-4f5f-bf57-02f377719a1e)
+
 
 **Question 5**
 ---
--- Paste Question 5 here
+-- Write a SQL statement to Increase the salary by 500 and email as 'updated' for employees with job ID 'SA_REP' and commission percentage greater than 0.15
 
 ```sql
--- Paste your SQL code below for Question 5
+-- UPDATE EMPLOYEES
+SET SALARY = SALARY + 500, EMAIL = 'updated'
+WHERE JOB_ID = 'SA_REP' AND COMMISSION_PCT > 0.15
 ```
 
 **Output:**
 
-![Output5](output.png)
+![image](https://github.com/user-attachments/assets/00b96747-ca97-43f7-9c50-50dca385d9f5)
+
 
 **Question 6**
 ---
--- Paste Question 6 here
+-- Write a SQL query to Delete customers from 'customer' table where 'GRADE' is less than 2.
 
 ```sql
--- Paste your SQL code below for Question 6
+-- DELETE FROM customer WHERE GRADE < 2;
 ```
 
 **Output:**
 
-![Output6](output.png)
+![image](https://github.com/user-attachments/assets/af570bdf-8b18-479c-a51a-72a6848efb3b)
+
 
 **Question 7**
 ---
--- Paste Question 7 here
+-- Write a SQL query to Delete a Specific Surgery whose ID is 3 or surgeon ID is 4.
 
 ```sql
--- Paste your SQL code below for Question 7
+-- DELETE FROM surgeries WHERE surgery_id = 3 OR surgeon_id = 4;
 ```
 
 **Output:**
 
-![Output7](output.png)
+![image](https://github.com/user-attachments/assets/ff9ebdde-7c15-4fe1-a9a8-75e262f564e5)
+
 
 **Question 8**
 ---
--- Paste Question 8 here
+-- Write a SQL query to Delete customers from 'customer' table where 'CUST_NAME' contains the substring 'Holmes'.
 
 ```sql
--- Paste your SQL code below for Question 8
+-- DELETE FROM customer WHERE CUST_NAME LIKE '%holmes%';
 ```
 
 **Output:**
 
-![Output8](output.png)
+![image](https://github.com/user-attachments/assets/cd574803-7834-404a-a46c-1c1e292c3dc9)
+
 
 **Question 9**
 ---
--- Paste Question 9 here
+-- Write a SQL query to Delete customers with 'GRADE' 3 or 'AGENT_CODE' 'A008' whose 'OUTSTANDING_AMT' is less than 5000
 
 ```sql
--- Paste your SQL code below for Question 9
+-- DELETE FROM customer WHERE (GRADE = 3 OR AGENT_CODE = 'A008') AND OUTSTANDING_AMT < 5000;
 ```
 
 **Output:**
 
-![Output9](output.png)
+![image](https://github.com/user-attachments/assets/946f222f-d237-4e6c-b48a-950e48bac576)
 
 **Question 10**
 ---
--- Paste Question 10 here
+-- Write a SQL query to Delete customers with 'CUST_COUNTRY' 'UK' and 'WORKING_AREA' 'London' whose 'GRADE' is less than 3
 
 ```sql
--- Paste your SQL code below for Question 10
+-- DELETE FROM customer WHERE (CUST_COUNTRY = 'UK' AND WORKING_AREA = 'London') AND GRADE < 3;
 ```
 
 **Output:**
 
-![Output10](output.png)
+![image](https://github.com/user-attachments/assets/d60efbbd-f068-48be-a744-bc5ac2483e04)
+
 
 ## RESULT
 Thus, the SQL queries to implement DML commands have been executed successfully.
