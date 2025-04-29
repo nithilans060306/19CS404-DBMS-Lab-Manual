@@ -38,123 +38,179 @@ HAVING condition;
 
 **Question 1**
 --
--- Paste Question 1 here
+-- What is the total number of appointments scheduled by each doctor?
 
 ```sql
--- Paste your SQL code below for Question 1
+-- SELECT DoctorID,  COUNT(DoctorID) as TotalAppointments FROM Appointments GROUP BY DoctorID
 ```
 
 **Output:**
 
-![Output1](output.png)
+![image](https://github.com/user-attachments/assets/ae4ed067-8772-447e-9e6a-d46a6b847765)
+
 
 **Question 2**
 ---
--- Paste Question 2 here
+-- How many male and female doctors are there in each medical specialty?
 
 ```sql
--- Paste your SQL code below for Question 2
+-- SELECT Specialty, Gender, COUNT(*) AS TotalDoctors FROM Doctors GROUP BY Specialty, Gender
 ```
 
 **Output:**
 
-![Output2](output.png)
+![image](https://github.com/user-attachments/assets/dab9b00b-743e-47f4-b3d7-4a4771722971)
+
 
 **Question 3**
 ---
--- Paste Question 3 here
+-- How many patients have insurance coverage valid in each year?
 
+Sample table:Insurance Table
+
+name               type
+-----------------  ----------
+InsuranceID        INTEGER
+PatientID          INTEGER
+InsuranceCompany   TEXT
+PolicyNumber       TEXT
+PolicyHolder       TEXT
+ValidityPeriod     TEXT
 ```sql
--- Paste your SQL code below for Question 3
+-- SELECT SUBSTR(ValidityPeriod, 1, 4) AS ValidityYear, Count(*) AS TotalPatients FROM Insurance GROUP BY ValidityYear;
 ```
 
 **Output:**
 
-![Output3](output.png)
+![image](https://github.com/user-attachments/assets/6382e891-eb3f-4838-b1e0-38f39105890b)
+
 
 **Question 4**
 ---
--- Paste Question 4 here
+-- Write a SQL query to count the number of customers. Return number of customers.
+
+Sample table: customer
+
+customer_id |   cust_name    |    city    | grade | salesman_id 
+
+-------------+----------------+------------+-------+-------------
+
+        3002 | Nick Rimando   | New York   |   100 |        5001
+
+        3007 | Brad Davis     | New York   |   200 |        5001
+
+        3005 | Graham Zusi    | California |   200 |        5002
 
 ```sql
--- Paste your SQL code below for Question 4
+-- SELECT COUNT(customer_id) AS COUNT FROM customer
 ```
 
 **Output:**
 
-![Output4](output.png)
+![image](https://github.com/user-attachments/assets/50591a3a-f775-4b54-b579-27faac8ace0e)
+
 
 **Question 5**
 ---
--- Paste Question 5 here
+-- Write a SQL query to return the total number of rows in the 'customer' table where the city is not Noida.
 
 ```sql
--- Paste your SQL code below for Question 5
+-- SELECT COUNT(id) AS COUNT FROM customer WHERE city <> 'Noida' 
 ```
 
 **Output:**
 
-![Output5](output.png)
+![image](https://github.com/user-attachments/assets/7587a454-0b05-425e-92a3-257044cd447b)
+
 
 **Question 6**
 ---
--- Paste Question 6 here
+-- Write a SQL query to find the minimum purchase amount.
+
+Sample table: orders
+
+ord_no      purch_amt   ord_date    customer_id  salesman_id
+
+----------  ----------  ----------  -----------  -----------
+
+70001       150.5       2012-10-05  3005         5002
+
+70009       270.65      2012-09-10  3001         5005
+
+70002       65.26       2012-10-05  3002         5001
+
+ 
 
 ```sql
--- Paste your SQL code below for Question 6
+-- SELECT MIN(purch_amt) AS MINIMUM FROM orders
 ```
 
 **Output:**
 
-![Output6](output.png)
+![image](https://github.com/user-attachments/assets/e6302b55-9d90-4135-a23e-db7a15c8bd04)
+
 
 **Question 7**
 ---
--- Paste Question 7 here
+-- Write a SQL query to find the total income of employees aged 40 or above.
+
+Table: employee
+
+name        type
+----------  ----------
+id          INTEGER
+name        TEXT
+age         INTEGER
+city        TEXT
+income      INTEGER
+
 
 ```sql
--- Paste your SQL code below for Question 7
+-- SELECT SUM(income) AS total_income FROM employee WHERE age >= 40
 ```
 
 **Output:**
 
-![Output7](output.png)
+![image](https://github.com/user-attachments/assets/f2e3391b-6419-4bec-bd92-e142a2cc0d74)
+
 
 **Question 8**
 ---
--- Paste Question 8 here
+-- Write the SQL query that accomplishes the selection of total number of products for each category from the "products" table, and includes only those products where the minimum category ID is less than 3.
 
 ```sql
--- Paste your SQL code below for Question 8
+-- SELECT category_id, count(product_name) FROM products WHERE category_id < 3 GROUP BY category_id 
 ```
 
 **Output:**
 
-![Output8](output.png)
+![image](https://github.com/user-attachments/assets/9abd7210-1b22-4d77-81d3-239b8548eed5)
+
 
 **Question 9**
 ---
--- Paste Question 9 here
+-- Write the SQL query that accomplishes the grouping of data by addresses, calculates the sum of salaries for each address, and excludes addresses where the total salary sum is not greater than 2000.
 
 ```sql
--- Paste your SQL code below for Question 9
+-- SELECT address, SUM(salary) FROM customer1 GROUP BY address HAVING SUM(salary) > 2000
 ```
 
 **Output:**
+![image](https://github.com/user-attachments/assets/8d36ebc1-ab20-45c7-8793-2e47ee588229)
 
-![Output9](output.png)
 
 **Question 10**
 ---
--- Paste Question 10 here
+-- Write the SQL query that accomplishes the selection of average price for each category from the "products" table and includes only those products where the average price falls between 10 and 15.
 
 ```sql
--- Paste your SQL code below for Question 10
+-- SELECT category_id, AVG(Price) FROM products GROUP BY category_id HAVING AVG(Price) BETWEEN 10 AND 15
 ```
 
 **Output:**
 
-![Output10](output.png)
+![image](https://github.com/user-attachments/assets/87acf172-e01b-46c9-82e9-0148162566eb)
+
 
 
 ## RESULT
