@@ -105,91 +105,135 @@ CREATE TABLE Table_Name (
 
 **Question 1**
 --
--- Paste Question 1 here
+-- In the Books table, insert a record where some fields are NULL, another record where all fields are filled without any NULL values, and a third record where some fields are filled, and others are left as NULL.
+
+ISBN             Title                      Author           Publisher   Year
+---------------  -------------------------  ---------------  ----------  ----------
+978-1234567890   Introduction to AI         John Doe
+978-9876543210   Deep Learning              Jane Doe         TechPress   2022
+978-1122334455   Cybersecurity Essentials   Alice Smith                  2021
 
 ```sql
--- Paste your SQL code below for Question 1
+-- INSERT INTO Books VALUES("978-1234567890","Introduction to AI","John Doe",NULL,NULL);
+INSERT INTO Books VALUES("978-9876543210","Deep Learning","Jane Doe","TechPress",2022);
+INSERT INTO Books VALUES("978-1122334455","Cybersecurity Essentials","Alice Smith",NULL,2021);
+
 ```
 
 **Output:**
 
-![Output1](output.png)
+![image](https://github.com/user-attachments/assets/a0a1eeee-6c5a-454b-84ae-a1794f51f47a)
+
 
 **Question 2**
 ---
--- Paste Question 2 here
+-- Create a new table named item with the following specifications and constraints:
+item_id as TEXT and as primary key.
+item_desc as TEXT.
+rate as INTEGER.
+icom_id as TEXT with a length of 4.
+icom_id is a foreign key referencing com_id in the company table.
+The foreign key should cascade updates and deletes.
+item_desc and rate should not accept NULL.
 
 ```sql
--- Paste your SQL code below for Question 2
+Create a new table named item with the following specifications and constraints:
+item_id as TEXT and as primary key.
+item_desc as TEXT.
+rate as INTEGER.
+icom_id as TEXT with a length of 4.
+icom_id is a foreign key referencing com_id in the company table.
+The foreign key should cascade updates and deletes.
+item_desc and rate should not accept NULL.
 ```
 
 **Output:**
 
-![Output2](output.png)
+![image](https://github.com/user-attachments/assets/40ee690a-391d-4850-bec1-34a882f65577)
+
 
 **Question 3**
 ---
--- Paste Question 3 here
+Insert a book with ISBN 978-1234567890, Title Data Science Essentials, Author Jane Doe, Publisher TechBooks, and Year 2024 into the Books table.
 
 ```sql
--- Paste your SQL code below for Question 3
+-- INSERT INTO Books(ISBN, Title, Author, Publisher, Year)
+Values('978-1234567890', 'Data Science Essentials', 'Jane Doe', 'TechBooks', 2024)
 ```
 
 **Output:**
 
-![Output3](output.png)
+![image](https://github.com/user-attachments/assets/ab1661c5-5a2c-4929-8686-610104527bc7)
+
 
 **Question 4**
 ---
--- Paste Question 4 here
+-- Insert all products from Discontinued_products into Products.
+Table attributes are ProductID, ProductName, Price, Stock
 
 ```sql
--- Paste your SQL code below for Question 4
+-- INSERT INTO Products SELECT * FROM Discontinued_products;
 ```
 
 **Output:**
-
-![Output4](output.png)
+![image](https://github.com/user-attachments/assets/c523e5ec-33c0-4843-8883-4361d11341ff)
 
 **Question 5**
 ---
--- Paste Question 5 here
+-- Create a table named Orders with the following columns:
+
+OrderID as INTEGER
+OrderDate as TEXT
+CustomerID as INTEGER
 
 ```sql
--- Paste your SQL code below for Question 5
+-- CREATE TABLE Orders(
+OrderID INTEGER,
+OrderDate TEXT,
+CustomerID INTEGER
+);
 ```
 
 **Output:**
 
-![Output5](output.png)
+![image](https://github.com/user-attachments/assets/67228173-0f15-4592-8e6a-3bf9ecc5bbe7)
+
 
 **Question 6**
 ---
--- Paste Question 6 here
+-- Write a SQL Query for inserting the below values in the table Customers
 
 ```sql
--- Paste your SQL code below for Question 6
+-- INSERT INTO Customers(ID, NAME, AGE, ADDRESS, SALARY)
+VALUES(1, 'Ramesh', 32, 'Ahmedabad', 2000), (2, 'Khilan', 25, 'Delhi', 1500), (3, 'Kaushik', 23, 'Kota', 2000);
 ```
 
 **Output:**
 
-![Output6](output.png)
+![image](https://github.com/user-attachments/assets/8cf21631-3a72-4e89-a9bc-7df21ab4cae5)
+
 
 **Question 7**
 ---
--- Paste Question 7 here
+-- create a table named jobs including columns job_id, job_title, min_salary and max_salary, and make sure that, the default value for job_title is blank and min_salary is 8000 and max_salary is NULL will be entered automatically at the time of insertion if no value assigned for the specified columns.
 
 ```sql
--- Paste your SQL code below for Question 7
+-- CREATE TABLE jobs(
+job_id INTEGER PRIMARY KEY,
+job_title TEXT DEFAULT NULL,
+min_salary INTEGER DEFAULT 8000,
+max_salary INTEGER DEFAULT NULL
+);
 ```
 
 **Output:**
+![image](https://github.com/user-attachments/assets/32e84e68-4351-4390-b53d-ff9182a59d56)
 
-![Output7](output.png)
 
 **Question 8**
 ---
--- Paste Question 8 here
+-- Write a SQL query to Add a new column mobilenumber as number in the Student_details table.
+Sample table: Student_details
 
 ```sql
 -- Paste your SQL code below for Question 8
@@ -197,31 +241,41 @@ CREATE TABLE Table_Name (
 
 **Output:**
 
-![Output8](output.png)
+ALTER TABLE Student_details ADD mobilenumb number;
 
 **Question 9**
 ---
--- Paste Question 9 here
-
+-- Create a table named Invoices with the following constraints:
+InvoiceID as INTEGER should be the primary key.
+InvoiceDate as DATE.
+Amount as REAL should be greater than 0.
+DueDate as DATE should be greater than the InvoiceDate.
+OrderID as INTEGER should be a foreign key referencing Orders(OrderID).
 ```sql
--- Paste your SQL code below for Question 9
+-- CREATE TABLE Invoices(InvoiceID INTEGER PRIMARY KEY,
+InvoiceDate DATE, Amount REAL CHECK (Amount > 0), 
+DueDate DATE CHECK (DueDate > InvoiceDate), 
+OrderID INTEGER,
+FOREIGN KEY(OrderID) REFERENCES Orders(OrderID)
+);
 ```
 
 **Output:**
 
-![Output9](output.png)
+![image](https://github.com/user-attachments/assets/f0c748d3-3b7b-47fb-b71e-fcff8e13e6ae)
+
 
 **Question 10**
 ---
--- Paste Question 10 here
+-- Write a SQL query to modify the Student_details table by adding a new column Email of type VARCHAR(50) and updating the column MARKS to have a default value of 0.
 
 ```sql
--- Paste your SQL code below for Question 10
+-- ALTER TABLE Student_details ADD COLUMN Email VARCHAR(50);
+ALTER TABLE Student_details ADD COLUMN MARKS INT DEFAULT 0;
 ```
 
 **Output:**
-
-![Output10](output.png)
+![image](https://github.com/user-attachments/assets/86108c35-a3df-4bb2-8bf8-38f12d6ee88a)
 
 
 ## RESULT
